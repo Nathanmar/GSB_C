@@ -1,0 +1,18 @@
+[
+    {
+      "nom": "Doliprane",
+      "marque": "GSB",
+      "effet": "Antidouleur"
+    },
+    {
+      "nom": "Aspirine",
+      "marque": "GSB",
+      "effet": "Anti-inflammatoire"
+    },
+    {
+      "nom": "Dexaméthazone",
+      "marque": "GSB",
+      "effet": "Corticoïde"
+    }
+  ]
+  
