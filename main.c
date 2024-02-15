@@ -1,73 +1,92 @@
+#include <jansson.h>
 #include <stdio.h>
 #include <string.h>
-#include <stdlib.h>
 
-#define MAX_MEDICAMENTS 100
+// Fonction pour afficher les médicaments sous forme de tableau
+void afficherMedicaments(json_t *tableau, const char *critere, const char *valeur) {
+    size_t index;
+    json_t *element;
+    int trouve = 0;
 
-typedef struct {
-    char marque[50];
-    char nom[50];
-} Medicament;
+    printf("\nMédicaments trouvés :\n");
+    printf("| %-15s | %-15s | %-25s |\n", "Nom", "Marque", "Effet");
+    printf("|-----------------|-----------------|-------------------------|\n");
 
-void afficherMedicaments(Medicament* medicaments, int nombreMedicaments) {
-    for (int i = 0; i < nombreMedicaments; i++) {
-        printf("Marque: %s, Nom: %s\n", medicaments[i].marque, medicaments[i].nom);
-    }
-}
+    json_array_foreach(tableau, index, element) {
+        if (strcmp(critere, "all") == 0 || strcmp(critere, "ALL") == 0) {
+            // Afficher tous les médicaments
+            const char *nom = json_string_value(json_object_get(element, "nom"));
+            const char *marque = json_string_value(json_object_get(element, "marque"));
+            const char *effet = json_string_value(json_object_get(element, "effet"));
 
-void filtrerParMarque(Medicament* medicaments, int nombreMedicaments, const char* marque) {
-    printf("Médicaments de la marque %s :\n", marque);
-    for (int i = 0; i < nombreMedicaments; i++) {
-        if (strcmp(medicaments[i].marque, marque) == 0) {
-            printf("Nom: %s\n", medicaments[i].nom);
+            printf("| %-15s | %-15s | %-25s |\n", nom, marque, effet);
+
+            trouve = 1;
+        } else {
+            json_t *critere_json = json_object_get(element, critere);
+            const char *valeur_critere = json_string_value(critere_json);
+
+            if (valeur_critere && strcmp(valeur_critere, valeur) == 0) {
+                // Afficher le médicament correspondant au critère spécifié
+                const char *nom = json_string_value(json_object_get(element, "nom"));
+                const char *marque = json_string_value(json_object_get(element, "marque"));
+                const char *effet = json_string_value(json_object_get(element, "effet"));
+
+                printf("| %-15s | %-15s | %-25s |\n", nom, marque, effet);
+
+                trouve = 1;
+            }
         }
     }
+
+    if (!trouve) {
+        if (strcmp(critere, "all") == 0 || strcmp(critere, "ALL") == 0) {
+            printf("Aucun médicament trouvé.\n");
+        } else {
+            printf("Aucun médicament trouvé avec le critère '%s=%s'.\n", critere, valeur);
+        }
+    }
+
+    printf("\n");
 }
 
 int main() {
-    FILE* fichier = fopen("medicaments.json", "r");
-    if (fichier == NULL) {
-        perror("Erreur lors de l'ouverture du fichier");
-        return ;
+    // Ouvrir le fichier JSON en lecture
+    FILE *fichier = fopen("medicaments.json", "r");
+    if (!fichier) {
+        fprintf(stderr, "Impossible d'ouvrir le fichier JSON.\n");
+        return 1;
     }
 
-    char ligne[256];
-    char contenu[1024];
-    while (fgets(ligne, sizeof(ligne), fichier) != NULL) {
-        strcat(contenu, ligne);
-    }
-
+    // Charger le contenu du fichier dans un tableau JSON
+    json_t *tableau;
+    json_error_t erreur;
+    tableau = json_loadf(fichier, 0, &erreur);
     fclose(fichier);
 
-    // Analyser le contenu JSON et remplir le tableau de médicaments
-    const char* marque_key = "\"marque\":";
-    const char* nom_key = "\"nom\":";
-
-    char* marque_start = strstr(contenu, marque_key);
-    char* nom_start = strstr(contenu, nom_key);
-
-    Medicament medicaments[MAX_MEDICAMENTS];
-    int nombreMedicaments = 0;
-
-    while (marque_start != NULL && nom_start != NULL && nombreMedicaments < MAX_MEDICAMENTS) {
-        marque_start += strlen(marque_key);
-        nom_start += strlen(nom_key);
-
-        sscanf(marque_start, "\"%49[^\"]", medicaments[nombreMedicaments].marque);
-        sscanf(nom_start, "\"%49[^\"]", medicaments[nombreMedicaments].nom);
-
-        nombreMedicaments++;
-
-        marque_start = strstr(marque_start, marque_key);
-        nom_start = strstr(nom_start, nom_key);
+    // Vérifier les erreurs de chargement
+    if (!tableau || !json_is_array(tableau)) {
+        fprintf(stderr, "Erreur lors du chargement JSON : %s\n", erreur.text);
+        return 1;
     }
 
-    // Afficher tous les médicaments
-    afficherMedicaments(medicaments, nombreMedicaments);
+    // Demander à l'utilisateur d'entrer le critère de recherche et la valeur
+    char critere[20], valeur[50];
+    printf("Entrez le critère de recherche (marque, effet, nom, all) : ");
+    fgets(critere, sizeof(critere), stdin);
+    critere[strcspn(critere, "\n")] = '\0';  // Supprimer le caractère de nouvelle ligne
 
-    // Filtrer par marque
-    const char* marqueRecherchee = "Paracétamol";
-    filtrerParMarque(medicaments, nombreMedicaments, marqueRecherchee);
+    if (strcmp(critere, "all") != 0 && strcmp(critere, "ALL") != 0) {
+        printf("Entrez la valeur du critère : ");
+        fgets(valeur, sizeof(valeur), stdin);
+        valeur[strcspn(valeur, "\n")] = '\0';  // Supprimer le caractère de nouvelle ligne
+    }
+
+    // Afficher les médicaments en fonction du critère spécifié
+    afficherMedicaments(tableau, critere, valeur);
+
+    // Libérer la mémoire allouée par Jansson
+    json_decref(tableau);
 
     return 0;
 }

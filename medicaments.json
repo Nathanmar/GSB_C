@@ -1,18 +1,37 @@
 [
-    {
-      "nom": "Doliprane",
-      "marque": "GSB",
-      "effet": "Antidouleur"
-    },
-    {
-      "nom": "Aspirine",
-      "marque": "GSB",
-      "effet": "Anti-inflammatoire"
-    },
-    {
-      "nom": "Dexaméthazone",
-      "marque": "GSB",
-      "effet": "Corticoïde"
-    }
-  ]
-  
+  {
+    "nom": "Doliprane",
+    "marque": "GSB",
+    "effet": "Antidouleur"
+  },
+  {
+    "nom": "Aspirine",
+    "marque": "GSB",
+    "effet": "Anti-inflammatoire"
+  },
+  {
+    "nom": "Dexaméthazone",
+    "marque": "GSB",
+    "effet": "Corticoïde"
+  },
+  {
+    "nom": "Advil",
+    "marque": "PharmaCo",
+    "effet": "Antidouleur"
+  },
+  {
+    "nom": "Paracétamol",
+    "marque": "Generic",
+    "effet": "Antidouleur"
+  },
+  {
+    "nom": "Ibuprofène",
+    "marque": "PharmaCo",
+    "effet": "Anti-inflammatoire"
+  },
+  {
+    "nom": "Prednisone",
+    "marque": "Generic",
+    "effet": "Corticoïde"
+  }
+]
