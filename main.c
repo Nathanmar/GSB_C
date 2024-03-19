@@ -111,12 +111,14 @@ int main() {
         int found = 0;
         switch (action) {
             case 1:
+            printf("Entrez la quantité à ajouter du stock : ");
+            scanf("%d", &quantite);
             for (size_t i = 0; i < json_array_size(tableau); i++) {
                 json_t *element = json_array_get(tableau, i);
                 const char *nom = json_string_value(json_object_get(element, "nom"));
                 if (strcmp(nom, choixMedicament) == 0) {
                     // Ajouter la quantité de stock au médicament sélectionné
-                    stock = json_object_get(element, "stock");
+                    json_t *stock = json_object_get(element, "stock");
                     int stockActuel = json_integer_value(stock);
                     json_integer_set(stock, stockActuel + quantite);
                     printf("La quantité de stock pour %s a été mise à jour.\n", nom);
@@ -130,13 +132,32 @@ int main() {
                 break;
             case 2:
                 printf("Entrez la quantité à retirer du stock : ");
-                scanf("%d", &quantite);
-                // Code pour retirer la quantité de stock du médicament sélectionné
-                break;
+            scanf("%d", &quantite);
+            for (size_t i = 0; i < json_array_size(tableau); i++) {
+                json_t *element = json_array_get(tableau, i);
+                const char *nom = json_string_value(json_object_get(element, "nom"));
+                if (strcmp(nom, choixMedicament) == 0) {
+                    // Ajouter la quantité de stock au médicament sélectionné
+                    json_t *stock = json_object_get(element, "stock");
+                    int stockActuel = json_integer_value(stock);
+                    json_integer_set(stock, stockActuel - quantite);
+                    printf("La quantité de stock pour %s a été mise à jour.\n", nom);
+                    found = 1;
+                    break;
+                }
+            }
             default:
                 printf("Choix invalide.\n");
                 break;
         }
+        FILE *fichier_modifie = fopen("medicaments.json", "w");
+        if (!fichier_modifie) {
+            fprintf(stderr, "Impossible d'ouvrir le fichier JSON pour écriture.\n");
+            return 1;
+        }
+        json_dumpf(tableau, fichier_modifie, JSON_INDENT(2));
+        fclose(fichier_modifie);
+        afficherMedicaments(tableau, "nom", choixMedicament);
     }
 
     // Libérer la mémoire allouée par Jansson

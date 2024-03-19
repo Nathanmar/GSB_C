@@ -32,296 +32,355 @@
   {
     "nom": "Ibuprofène",
     "marque": "PharmaCo",
-    "effet": "Anti-inflammatoire"
+    "effet": "Anti-inflammatoire",
+    "stock": 50
   },
   {
     "nom": "Prednisone",
     "marque": "Generic",
-    "effet": "Corticoïde"
+    "effet": "Corticoïde",
+    "stock": 50
   },
   {
     "nom": "Ranitidine",
     "marque": "PharmaCo",
-    "effet": "Antiacide"
+    "effet": "Antiacide",
+    "stock": 50
   },
   {
     "nom": "Omeprazole",
     "marque": "Generic",
-    "effet": "Antiulcéreux"
+    "effet": "Antiulcéreux",
+    "stock": 50
   },
   {
     "nom": "Atorvastatine",
     "marque": "PharmaCo",
-    "effet": "Hypocholestérolémiant"
+    "effet": "Hypocholestérolémiant",
+    "stock": 50
   },
   {
     "nom": "Lévothyroxine",
     "marque": "Generic",
-    "effet": "Hormone thyroïdienne"
+    "effet": "Hormone thyroïdienne",
+    "stock": 50
   },
   {
     "nom": "Atenolol",
     "marque": "Generic",
-    "effet": "Bêta-bloquant"
+    "effet": "Bêta-bloquant",
+    "stock": 50
   },
   {
     "nom": "Lisinopril",
     "marque": "Generic",
-    "effet": "Inhibiteur de l'enzyme de conversion"
+    "effet": "Inhibiteur de l'enzyme de conversion",
+    "stock": 50
   },
   {
     "nom": "Metformine",
     "marque": "Generic",
-    "effet": "Antidiabétique"
+    "effet": "Antidiabétique",
+    "stock": 50
   },
   {
     "nom": "Citalopram",
     "marque": "Generic",
-    "effet": "Antidépresseur"
+    "effet": "Antidépresseur",
+    "stock": 50
   },
   {
     "nom": "Warfarine",
     "marque": "Generic",
-    "effet": "Anticoagulant"
+    "effet": "Anticoagulant",
+    "stock": 50
   },
   {
     "nom": "Diazépam",
     "marque": "Generic",
-    "effet": "Anxiolytique"
+    "effet": "Anxiolytique",
+    "stock": 150
   },
   {
     "nom": "Amoxicilline",
     "marque": "Generic",
-    "effet": "Antibiotique"
+    "effet": "Antibiotique",
+    "stock": 50
   },
   {
     "nom": "Loratadine",
     "marque": "Generic",
-    "effet": "Antihistaminique"
+    "effet": "Antihistaminique",
+    "stock": 50
   },
   {
     "nom": "Oxycontin",
     "marque": "PharmaCo",
-    "effet": "Analgésique opioïde"
+    "effet": "Analgésique opioïde",
+    "stock": 50
   },
   {
     "nom": "Clonazépam",
     "marque": "Generic",
-    "effet": "Anticonvulsivant"
+    "effet": "Anticonvulsivant",
+    "stock": 50
   },
   {
     "nom": "Morphine",
     "marque": "Generic",
-    "effet": "Analgésique opioïde"
+    "effet": "Analgésique opioïde",
+    "stock": 50
   },
   {
     "nom": "Furosemide",
     "marque": "Generic",
-    "effet": "Diurétique"
+    "effet": "Diurétique",
+    "stock": 50
   },
   {
     "nom": "Risperdal",
     "marque": "Janssen",
-    "effet": "Antipsychotique"
+    "effet": "Antipsychotique",
+    "stock": 50
   },
   {
     "nom": "Zolpidem",
     "marque": "Generic",
-    "effet": "Hypnotique"
+    "effet": "Hypnotique",
+    "stock": 50
   },
   {
     "nom": "Metoprolol",
     "marque": "Generic",
-    "effet": "Bêta-bloquant"
+    "effet": "Bêta-bloquant",
+    "stock": 50
   },
   {
     "nom": "Fluoxétine",
     "marque": "Generic",
-    "effet": "Antidépresseur"
+    "effet": "Antidépresseur",
+    "stock": 50
   },
   {
     "nom": "Diazoxide",
     "marque": "Generic",
-    "effet": "Vasodilatateur"
+    "effet": "Vasodilatateur",
+    "stock": 50
   },
   {
     "nom": "Ramipril",
     "marque": "Generic",
-    "effet": "Inhibiteur de l'enzyme de conversion"
+    "effet": "Inhibiteur de l'enzyme de conversion",
+    "stock": 50
   },
   {
     "nom": "Carbamazépine",
     "marque": "Generic",
-    "effet": "Anticonvulsivant"
+    "effet": "Anticonvulsivant",
+    "stock": 50
   },
   {
     "nom": "Enalapril",
     "marque": "Generic",
-    "effet": "Inhibiteur de l'enzyme de conversion"
+    "effet": "Inhibiteur de l'enzyme de conversion",
+    "stock": 50
   },
   {
     "nom": "Nifédipine",
     "marque": "Generic",
-    "effet": "Inhibiteur calcique"
+    "effet": "Inhibiteur calcique",
+    "stock": 50
   },
   {
     "nom": "Atropine",
     "marque": "Generic",
-    "effet": "Anticholinergique"
+    "effet": "Anticholinergique",
+    "stock": 50
   },
   {
     "nom": "Simvastatine",
     "marque": "Generic",
-    "effet": "Hypocholestérolémiant"
+    "effet": "Hypocholestérolémiant",
+    "stock": 50
   },
   {
     "nom": "Clopidogrel",
     "marque": "Generic",
-    "effet": "Antiagrégant plaquettaire"
+    "effet": "Antiagrégant plaquettaire",
+    "stock": 50
   },
   {
     "nom": "Bupropion",
     "marque": "Generic",
-    "effet": "Antidépresseur"
+    "effet": "Antidépresseur",
+    "stock": 50
   },
   {
     "nom": "Métronidazole",
     "marque": "Generic",
-    "effet": "Antibiotique"
+    "effet": "Antibiotique",
+    "stock": 50
   },
   {
     "nom": "Bromazépam",
     "marque": "Generic",
-    "effet": "Anxiolytique"
+    "effet": "Anxiolytique",
+    "stock": 50
   },
   {
     "nom": "Hydrochlorothiazide",
     "marque": "Generic",
-    "effet": "Diurétique"
+    "effet": "Diurétique",
+    "stock": 50
   },
   {
     "nom": "Venlafaxine",
     "marque": "Generic",
-    "effet": "Antidépresseur"
+    "effet": "Antidépresseur",
+    "stock": 50
   },
   {
     "nom": "Tramadol",
     "marque": "Generic",
-    "effet": "Analgésique opioïde"
+    "effet": "Analgésique opioïde",
+    "stock": 50
   },
   {
     "nom": "Digoxine",
     "marque": "Generic",
-    "effet": "Cardiotonique"
+    "effet": "Cardiotonique",
+    "stock": 50
   },
   {
     "nom": "Béclométasone",
     "marque": "Generic",
-    "effet": "Corticoïde inhalé"
+    "effet": "Corticoïde inhalé",
+    "stock": 50
   },
   {
     "nom": "Alprazolam",
     "marque": "Generic",
-    "effet": "Anxiolytique"
+    "effet": "Anxiolytique",
+    "stock": 50
   },
   {
     "nom": "Levothyrox",
     "marque": "Merck",
-    "effet": "Hormone thyroïdienne"
+    "effet": "Hormone thyroïdienne",
+    "stock": 50
   },
   {
     "nom": "Bisoprolol",
     "marque": "Generic",
-    "effet": "Bêta-bloquant"
+    "effet": "Bêta-bloquant",
+    "stock": 50
   },
   {
     "nom": "Rivotril",
     "marque": "Roche",
-    "effet": "Anticonvulsivant"
+    "effet": "Anticonvulsivant",
+    "stock": 50
   },
   {
     "nom": "Cymbalta",
     "marque": "Eli Lilly",
-    "effet": "Antidépresseur"
+    "effet": "Antidépresseur",
+    "stock": 50
   },
   {
     "nom": "Lorazépam",
     "marque": "Generic",
-    "effet": "Anxiolytique"
+    "effet": "Anxiolytique",
+    "stock": 50
   },
   {
     "nom": "Fluconazole",
     "marque": "Generic",
-    "effet": "Antifongique"
+    "effet": "Antifongique",
+    "stock": 50
   },
   {
     "nom": "Hydrocortisone",
     "marque": "Generic",
-    "effet": "Corticoïde"
+    "effet": "Corticoïde",
+    "stock": 50
   },
   {
     "nom": "Amlodipine",
     "marque": "Generic",
-    "effet": "Inhibiteur calcique"
+    "effet": "Inhibiteur calcique",
+    "stock": 50
   },
   {
     "nom": "Metronidazole",
     "marque": "Generic",
-    "effet": "Antibiotique"
+    "effet": "Antibiotique",
+    "stock": 50
   },
   {
     "nom": "Phenobarbital",
     "marque": "Generic",
-    "effet": "Anticonvulsivant"
+    "effet": "Anticonvulsivant",
+    "stock": 50
   },
   {
     "nom": "Esomeprazole",
     "marque": "Generic",
-    "effet": "Antiulcéreux"
+    "effet": "Antiulcéreux",
+    "stock": 50
   },
   {
     "nom": "Losartan",
     "marque": "Generic",
-    "effet": "Antihypertenseur"
+    "effet": "Antihypertenseur",
+    "stock": 50
   },
   {
     "nom": "Clozapine",
     "marque": "Generic",
-    "effet": "Antipsychotique"
+    "effet": "Antipsychotique",
+    "stock": 50
   },
   {
     "nom": "Fentanyl",
     "marque": "Generic",
-    "effet": "Analgésique opioïde"
+    "effet": "Analgésique opioïde",
+    "stock": 50
   },
   {
     "nom": "Allopurinol",
     "marque": "Generic",
-    "effet": "Antigoutteux"
+    "effet": "Antigoutteux",
+    "stock": 50
   },
   {
     "nom": "Budesonide",
     "marque": "Generic",
-    "effet": "Corticoïde"
+    "effet": "Corticoïde",
+    "stock": 50
   },
   {
     "nom": "Gabapentine",
     "marque": "Generic",
-    "effet": "Anticonvulsivant"
+    "effet": "Anticonvulsivant",
+    "stock": 50
   },
   {
     "nom": "Diltiazem",
     "marque": "Generic",
-    "effet": "Inhibiteur calcique"
+    "effet": "Inhibiteur calcique",
+    "stock": 50
   },
   {
     "nom": "Méthotrexate",
     "marque": "Generic",
-    "effet": "Antirhumatismal"
+    "effet": "Antirhumatismal",
+    "stock": 50
   },
   {
     "nom": "Ceftriaxone",
     "marque": "Generic",
-    "effet": "Antibiotique"
+    "effet": "Antibiotique",
+    "stock": 50
   }
 ]
