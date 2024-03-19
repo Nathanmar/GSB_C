@@ -9,8 +9,8 @@ void afficherMedicaments(json_t *tableau, const char *critere, const char *valeu
     int trouve = 0;
 
     printf("\nMédicaments trouvés :\n");
-    printf("| %-15s | %-15s | %-25s |\n", "Nom", "Marque", "Effet");
-    printf("|-----------------|-----------------|-------------------------|\n");
+    printf("| %-15s | %-15s | %-25s | %-5s |\n", "Nom", "Marque", "Effet", "Stock");
+    printf("|-----------------|-----------------|-------------------------|-------|\n");
 
     json_array_foreach(tableau, index, element) {
         if (strcmp(critere, "all") == 0 || strcmp(critere, "ALL") == 0) {
@@ -18,8 +18,9 @@ void afficherMedicaments(json_t *tableau, const char *critere, const char *valeu
             const char *nom = json_string_value(json_object_get(element, "nom"));
             const char *marque = json_string_value(json_object_get(element, "marque"));
             const char *effet = json_string_value(json_object_get(element, "effet"));
+            int stock = json_integer_value(json_object_get(element, "stock"));
 
-            printf("| %-15s | %-15s | %-25s |\n", nom, marque, effet);
+            printf("| %-15s | %-15s | %-25s | %-5d |\n", nom, marque, effet, stock);
 
             trouve = 1;
         } else {
@@ -31,8 +32,9 @@ void afficherMedicaments(json_t *tableau, const char *critere, const char *valeu
                 const char *nom = json_string_value(json_object_get(element, "nom"));
                 const char *marque = json_string_value(json_object_get(element, "marque"));
                 const char *effet = json_string_value(json_object_get(element, "effet"));
+                int stock = json_integer_value(json_object_get(element, "stock"));
 
-                printf("| %-15s | %-15s | %-25s |\n", nom, marque, effet);
+                printf("| %-15s | %-15s | %-25s | %-5d |\n", nom, marque, effet, stock);
 
                 trouve = 1;
             }
@@ -84,6 +86,58 @@ int main() {
 
     // Afficher les médicaments en fonction du critère spécifié
     afficherMedicaments(tableau, critere, valeur);
+
+    // Demander à l'utilisateur de choisir un médicament spécifique
+    if (strcmp(critere, "all") != 0 && strcmp(critere, "ALL") != 0) {
+        char choixMedicament[50];
+        printf("Quel médicament spécifique choisissez-vous (entrez le nom exact) ? ");
+        fgets(choixMedicament, sizeof(choixMedicament), stdin);
+        choixMedicament[strcspn(choixMedicament, "\n")] = '\0';  // Supprimer le caractère de nouvelle ligne
+
+        // Rechercher et afficher le médicament spécifique
+        afficherMedicaments(tableau, "nom", choixMedicament);
+
+        // Demander à l'utilisateur ce qu'il souhaite faire avec le stock
+        int action;
+        printf("Que voulez-vous faire avec le stock de ce médicament ?\n");
+        printf("1. Ajouter du stock\n");
+        printf("2. Retirer du stock\n");
+        printf("Choix : ");
+        scanf("%d", &action);
+
+        json_t *medicament = NULL;
+        json_t *stock = NULL;
+        int quantite;
+        int found = 0;
+        switch (action) {
+            case 1:
+            for (size_t i = 0; i < json_array_size(tableau); i++) {
+                json_t *element = json_array_get(tableau, i);
+                const char *nom = json_string_value(json_object_get(element, "nom"));
+                if (strcmp(nom, choixMedicament) == 0) {
+                    // Ajouter la quantité de stock au médicament sélectionné
+                    stock = json_object_get(element, "stock");
+                    int stockActuel = json_integer_value(stock);
+                    json_integer_set(stock, stockActuel + quantite);
+                    printf("La quantité de stock pour %s a été mise à jour.\n", nom);
+                    found = 1;
+                    break;
+                }
+            }
+            if (!found) {
+                printf("Le médicament spécifié n'a pas été trouvé.\n");
+            }
+                break;
+            case 2:
+                printf("Entrez la quantité à retirer du stock : ");
+                scanf("%d", &quantite);
+                // Code pour retirer la quantité de stock du médicament sélectionné
+                break;
+            default:
+                printf("Choix invalide.\n");
+                break;
+        }
+    }
 
     // Libérer la mémoire allouée par Jansson
     json_decref(tableau);
